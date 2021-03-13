@@ -1,0 +1,22 @@
+{% extends "netflix/layout.html" %}
+{% block title%}
+{{ movie.title }}
+{% endblock%}
+{% block body %}
+<video controls width="100%"  height="70%" src="{{ request.scheme }}://{{ request.get_host }}{{ movie.video.url }}"></video>
+
+<div>
+    <div style="margin:5px; display:flex;"></div>
+    <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+    <div>
+        <h4><a href="">{{ movie.title }} ({{ movie.year|date:"Y" }})</a></h4>
+        <p>Description: {{ movie.desc }}</p>
+        <p>Category: {{ movie.categories }}</p>
+        <p>Country: {{ movie.country }}</p>
+        <p>Rate: {{ movie.rate }}</p>
+       
+    </div>
+</div>
+<a href="{% url 'update' movie.id %}"><button>Edit</button></a>
+<a href="{% url 'delete' movie.id %}"><button>Delete</button></a>
+{% endblock %}

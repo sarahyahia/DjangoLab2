@@ -1,0 +1,19 @@
+{% extends "netflix/layout.html" %}
+{% block title%}
+Movies Dashboard
+{% endblock%}
+{% block body %}
+<h1>Movies Dashboard</h1>
+<a href="{% url 'create' %}"><button>Add New Movie</button></a>
+{% for movie in movies %}
+<div>
+    <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+    <div>
+        <h4><a href="{% url 'display' movie.id %}">{{ movie.title }} ({{ movie.year|date:"Y" }})</a></h4>
+        <p style="width: 200px;">{{ movie.desc }}</p>
+        
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
