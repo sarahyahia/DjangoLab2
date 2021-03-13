@@ -6,7 +6,7 @@ Update {{movie.title}}
 <form action="{% url 'update' movie.id %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Update Movie</button>
+    <button class="btn btn-success" type="submit">Update Movie</button>
 </form>
 
 {% endblock %}

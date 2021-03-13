@@ -4,9 +4,12 @@ Movies Dashboard
 {% endblock%}
 {% block body %}
 <h1 class="text-center">Movies Dashboard</h1>
-<a href="{% url 'create' %}"><button>Add New Movie</button></a>
+<div class='row' style="margin: 5%;">
+    <a class="text-center" href="{% url 'create' %}"><button class="btn btn-success">Add New Movie</button></a>
+</div>
+<div class="row">
 {% for movie in movies %}
-<div>
+<div class='col-lg-3'>
     <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
     <div>
         <h4><a href="{% url 'display' movie.id %}">{{ movie.title }} ({{ movie.year|date:"Y" }})</a></h4>
@@ -15,5 +18,5 @@ Movies Dashboard
     </div>
 </div>
 {% endfor %}
-
+</div>
 {% endblock %}
