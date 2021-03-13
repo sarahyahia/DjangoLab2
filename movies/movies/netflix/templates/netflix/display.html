@@ -11,7 +11,7 @@
     <div>
         <h4><a href="">{{ movie.title }} ({{ movie.year|date:"Y" }})</a></h4>
         <p>Description: {{ movie.desc }}</p>
-        <p>Category:{% for category in movie.categories.all %}{{ category }} {% endfor %}</p>
+        <p>Category: {% for category in movie.categories.all %}{{ category }} {% endfor %}</p>
         <p>Country: {{ movie.country }}</p>
         <p>Rate: {{ movie.rate }}</p>
        

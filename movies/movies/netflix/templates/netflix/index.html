@@ -4,9 +4,7 @@ Movies Dashboard
 {% endblock%}
 {% block body %}
 <h1 class="text-center">Movies Dashboard</h1>
-<div class='row' style="margin: 5%;">
-    <a class="text-center" href="{% url 'create' %}"><button class="btn btn-success">Add New Movie</button></a>
-</div>
+
 <div class="row">
 {% for movie in movies %}
 <div class='col-lg-3'>
@@ -18,5 +16,8 @@ Movies Dashboard
     </div>
 </div>
 {% endfor %}
+</div>
+<div class='row' style="margin: 5%;">
+    <a class="text-center" href="{% url 'create' %}"><button class="btn btn-success">Add New Movie</button></a>
 </div>
 {% endblock %}
