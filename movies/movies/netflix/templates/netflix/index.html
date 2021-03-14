@@ -3,8 +3,16 @@
 Movies Dashboard
 {% endblock%}
 {% block body %}
-<h1 class="text-center">Movies Dashboard</h1>
 
+<h1 class="text-center">Movies Dashboard</h1>
+<div class='row' style="margin: 5%;">
+    {% if perms.netflix.add_movie %}
+    <a class="text-center" href="{% url 'create' %}"><button class="btn btn-success btn-lg btn-block">Add New Movie</button></a>
+    {% endif %}
+    <a class="text-center" href="{% url 'logout' %}"><button class="btn btn-danger btn-lg btn-block">Log Out</button></a>
+</div>
+
+<div style="margin:3%; display:flex;"></div>
 <div class="row">
 {% for movie in movies %}
 <div class='col-lg-3'>
@@ -17,7 +25,5 @@ Movies Dashboard
 </div>
 {% endfor %}
 </div>
-<div class='row' style="margin: 5%;">
-    <a class="text-center" href="{% url 'create' %}"><button class="btn btn-success">Add New Movie</button></a>
-</div>
+
 {% endblock %}

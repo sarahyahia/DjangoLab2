@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/nav_sidebar.css">
+  <script src="/static/admin/js/nav_sidebar.js" defer></script>
+
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+
+
+<script src="/admin/jsi18n/"></script>
+<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script src="/static/admin/js/jquery.init.js"></script>
+<script src="/static/admin/js/core.js"></script>
+<script src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script src="/static/admin/js/actions.js"></script>
+<script src="/static/admin/js/urlify.js"></script>
+<script src="/static/admin/js/prepopulate.js"></script>
+<script src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    <title>Register now</title>
+
+</head>
+<body>
+    <!--form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form-->
+
+        
+          
+        
+        <!-- Content -->
+        <div id="content" class="colM">
+          
+          <h1>Register Now</h1>
+          <div id="content-main">
+
+
+
+<form action="{% url 'signup' %}" method="post" id="user_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="oHRiVgFZMUmuFgKjFSztGwGg3qE7iMzfE70nZE8vLzRnzVOSPWYlCWWkrorUjkof">
+    {% csrf_token %}
+    <p>First, enter a username and password.</p>
+  
+
+<div>
+
+
+
+
+
+
+
+  <fieldset class="module aligned wide">
+    
+    
+    
+        <div class="form-row field-username">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_username">Username:</label>
+                        
+                            <input type="text" name="username" class="vTextField" maxlength="150" autocapitalize="none" autocomplete="username" autofocus required id="id_username">
+                        
+                    
+                    
+                        <div class="help">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-password1">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_password1">Password:</label>
+                        
+                            <input type="password" name="password1" autocomplete="new-password" required id="id_password1">
+                        
+                    
+                    
+                        <div class="help"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-password2">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_password2">Password confirmation:</label>
+                        
+                            <input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+                        
+                    
+                    
+                        <div class="help">Enter the same password as before, for verification.</div>
+                    
+                </div>
+            
+        </div>
+        <input type="submit" value="Register" class="default" name="_save">
+</fieldset>
+
+
+</body>
+</html>

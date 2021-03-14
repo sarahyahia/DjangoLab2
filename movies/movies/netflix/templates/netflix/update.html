@@ -3,10 +3,11 @@
 Update {{movie.title}}
 {% endblock%}
 {% block body %}
+
 <form action="{% url 'update' movie.id %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-success" type="submit">Update Movie</button>
 </form>
-
+<a class="text-center" href="{% url 'logout' %}"><button class="btn btn-danger ">Log Out</button></a>
 {% endblock %}

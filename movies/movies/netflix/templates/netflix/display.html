@@ -3,6 +3,7 @@
 {{ movie.title }}
 {% endblock%}
 {% block body %}
+
 <video controls width="100%"  height="70%" src="{{ request.scheme }}://{{ request.get_host }}{{ movie.video.url }}"></video>
 
 <div>
@@ -17,6 +18,11 @@
        
     </div>
 </div>
+{% if perms.netflix.edit_movie %}
 <a href="{% url 'update' movie.id %}"><button class="btn btn-success">Edit</button></a>
+{% endif %}
+{% if perms.netflix.delete_movie %}
 <a href="{% url 'delete' movie.id %}"><button class="btn btn-danger">Delete</button></a>
+<a class="text-center" href="{% url 'logout' %}"><button class="btn btn-danger ">Log Out</button></a>
+{% endif %}
 {% endblock %}

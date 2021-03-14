@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,19 +28,51 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# AUTHENTICATION_BACKENDS = [
+    
+#     # Needed to login by username in Django admin, regardless of `allauth`
+#     #'django.contrib.auth.backends.ModelBackend',
+
+#     # `allauth` specific authentication methods, such as login by e-mail
+#     #'allauth.account.auth_backends.AuthenticationBackend',
+    
+# ]
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    
+    #'allauth',
+    #'allauth.account',
+    #'allauth.socialaccount',
     'netflix',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'django.contrib.sites',
 ]
 
+
+# SITE_ID = 1
+
+# # Provider specific settings
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         # For each OAuth based provider, either add a ``SocialApp``
+#         # (``socialaccount`` app) containing the required client
+#         # credentials, or list them here:
+#         'APP': {
+#             'client_id': '123',
+#             'secret': '456',
+#             'key': ''
+#         }
+#     }
+# }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,7 +88,7 @@ ROOT_URLCONF = 'movies.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,6 +96,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # `allauth` needs this from django
+                # 'django.template.context_processors.request',
             ],
         },
     },
@@ -104,8 +139,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+LOGIN_REDIRECT_URL = "/netflix/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
+
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -123,6 +163,6 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-import os
+
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
