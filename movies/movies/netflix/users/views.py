@@ -2,9 +2,11 @@ from rest_framework.response import Response
 #from django.contrib.auth.models import User, Group
 from .serializers import UserSerializer
 from  rest_framework import status
-from rest_framework.decorators import api_view #,permission_classes
-#from rest_framework.permissions import IsAuthenticated ,BasePermission
+from rest_framework.decorators import api_view ,permission_classes
+#from authentication.permissions import IsNotAuthenticated
+from rest_framework.permissions import AllowAny
 
+@permission_classes([AllowAny,])
 @api_view(['POST'])
 def api_signup(request):
     serializer = UserSerializer(data=request.data)
