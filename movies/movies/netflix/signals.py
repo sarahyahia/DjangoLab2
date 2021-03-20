@@ -18,6 +18,3 @@ def user_created(sender, instance, created, *args, **kwargs):
             [instance.email],
             fail_silently=False
         )
-    
-    else:
-        print("updating record")
