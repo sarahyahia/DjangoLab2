@@ -29,7 +29,7 @@ urlpatterns = [
     path('accounts/', include("accounts.urls")), 
     # path('accounts/', include('allauth.urls')), 
     path('api/movies/', include('netflix.api.urls')),
-    path('api/viewset/',include(router.urls)),
+    #path('api/viewset/',include(router.urls)),
     path('api/users/', include('netflix.users.urls')),
     path('netflix/', include('netflix.urls')),
 ]
