@@ -23,10 +23,10 @@ class Rate(models.Model):
 
 class Movie(models.Model):
     title= models.CharField(max_length=200)
-    desc = models.TextField()
-    year = models.DateField()
-    poster = models.ImageField(upload_to="movies/posters" )
-    video = models.FileField(upload_to="movies/videos")
+    desc = models.TextField(null=True,blank=True)
+    year = models.DateField(null=True,blank=True)
+    poster = models.ImageField(upload_to="movies/posters",null=True,blank=True )
+    video = models.FileField(upload_to="movies/videos",null=True,blank=True)
     categories = models.ManyToManyField(Category)
     country = models.ForeignKey(Country , null=True ,on_delete=models.SET_NULL)
     rate= models.OneToOneField(Rate, null=True,on_delete=models.SET_NULL)

@@ -23,6 +23,7 @@
 {% endif %}
 {% if perms.netflix.delete_movie %}
 <a href="{% url 'delete' movie.id %}"><button class="btn btn-danger">Delete</button></a>
-<a class="text-center" href="{% url 'logout' %}"><button class="btn btn-danger ">Log Out</button></a>
+
 {% endif %}
+<a class="text-center" href="{% url 'logout' %}"><button class="btn btn-danger ">Log Out</button></a>
 {% endblock %}
